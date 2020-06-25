@@ -1,5 +1,6 @@
-{% load static wagtailuserbar menus_tags %}
-
+{% load static wagtailuserbar %}
+{% load menu_tags %}
+{% main_menu max_levels=1 template="menus/main_menu.html" %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -43,13 +44,13 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="https://debutterfly.herokuapp.com">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="https://debutterfly.herokuapp.com">Home<span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>
 
           {% for item in navigation.menu_items.all %}
-                  <a href={{ item.link }} class="nav-link"{% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+                  <a href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
           {% endfor %}
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -58,11 +59,9 @@
       </div>
     </nav>
 
-
-        <!-- <div class="container ph3 ph5-ns"> -->
             {% block content %}{% endblock %}
         </div>
-
+<body>
         {# Global javascript #}
         
 

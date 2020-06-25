@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'streams',
     'site_settings',
     'wagtail.contrib.modeladmin',
+    'wagtailmenus',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.contrib.settings',
@@ -92,6 +93,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'wagtail.contrib.settings.context_processors.settings',
+                'wagtailmenus.context_processors.wagtailmenus',
 
             ],
         },
