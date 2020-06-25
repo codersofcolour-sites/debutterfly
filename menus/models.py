@@ -62,8 +62,6 @@ class MenuItem(Orderable):
 
 
 @register_snippet
-
-
 class Menu(ClusterableModel):
     """The main menu clusterable model."""
 

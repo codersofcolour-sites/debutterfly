@@ -1,8 +1,25 @@
 """Streamfields live in here."""
+from django.db import models
 
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.core.fields import StreamField, RichTextField
+from wagtail.admin.edit_handlers import (FieldPanel, FieldRowPanel,InlinePanel, MultiFieldPanel, PageChooserPanel, StreamFieldPanel)
+from modelcluster.fields import ParentalKey
 
+class CTABlock(blocks.StructBlock):
+    """A simple call to action section."""
+
+    title = blocks.CharBlock(required=True, max_length=60)
+    text = blocks.RichTextBlock(required=True, features=["bold", "italic"])
+    button_page = blocks.PageChooserBlock(required=False)
+    button_url = blocks.URLBlock(required=False)
+    button_text = blocks.CharBlock(required=True, default='Learn More', max_length=40)
+
+    class Meta:  # noqa
+        template = "streams/cta_block.html"
+        icon = "placeholder"
+        label = "Call to Action"
 
 class RawHTMLBlock(blocks.RawHTMLBlock):
     

@@ -1,10 +1,9 @@
 from django.db import models
+from wagtail.core import blocks
 
 from modelcluster.fields import ParentalKey
-
-from wagtail.core.blocks import StructBlock, CharBlock, ListBlock, TextBlock
 from wagtail.core.models import Page, Orderable
-from wagtail.core.fields import RichTextField
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, InlinePanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from streams import blocks
@@ -50,6 +49,16 @@ class HomePage(Page):
         related_name="+"
     )
 
+    content = StreamField(
+        [
+            ("title_and_text", blocks.TitleAndTextBlock()),
+            ("cards", blocks.CardBlock()),
+            ("cta", blocks.CTABlock()),
+        ],
+        null=True,
+        blank=True,
+    )
+
   
     content_panels = Page.content_panels + [
         MultiFieldPanel([
@@ -62,6 +71,7 @@ class HomePage(Page):
         MultiFieldPanel([
             InlinePanel("carousel_images", max_num=5, min_num=1,label="Image"),
         ], heading="Carousel Images"),
+        StreamFieldPanel("content"),
     ]
 
     body = RichTextField(blank=True)
