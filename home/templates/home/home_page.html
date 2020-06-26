@@ -15,9 +15,11 @@
            {% image loop_cycle.carousel_image fill-1920x1080 as img %}
             <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %}">
               <img src="{{ img.url }}" class="d-block w-100" alt="{{ img.alt }}">
-              <div class="carousel-caption text-left">
-                <h2>{{ value.heading }}</h2>
-                {{ value.text }}
+              <div class="carousel-caption text-align:justify">
+                <span style="font-family:Geneva, sans-serif">
+                <h1 style=font-size:60px>DE BUTTERFLY CIC</h1>
+                <h2>Transforming the mind and lives.</h2>
+                </span>
               </div>
             </div>
       {% endfor %}
@@ -31,37 +33,6 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-
-
-  <pre> 
-
-
-        
-  </pre>
-
-  <div class="container mb-sm-5 mt-sm-5">
-    <h1 class="text-center mb-sm-5">{{ self.title }}</h1>
-    <div class="card-deck">
-        {% for card in self.cards %}
-            {% image card.image fill-300x200 as img %}
-            <div class="card">
-                <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top" />
-                <div class="card-body">
-                    <h5 class="card-title">{{ card.title }}</h5>
-                    <p class="card-text">{{ card.text }}</p>
-                    {% if card.button_page %}
-                        <a href="{{ card.button_page.url }}" class="btn btn-info">
-                        </a>
-                    {% elif card.button_url %}
-                        <a href="{{ card.button_url }}" class="btn btn-info">
-                        </a>
-                    {% endif %}
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
 
 
       {% endblock %}

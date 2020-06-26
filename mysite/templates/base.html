@@ -18,6 +18,7 @@
       </title>
       <meta name="description" content="" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
 
         <!-- CSS Reset -->
         <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
@@ -33,7 +34,6 @@
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
-    </head>
 
 <!-- 
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent justify-content-between">
@@ -74,21 +74,14 @@
             {# Override this in templates to add extra javascript #}
         {% endblock %}
     </body>
-  
-    <div class="container ph3 ph5-ns">
-
-      <pre> 
-
-
-
-      </pre>
-
+    &NonBreakingSpace;
 <!-- FOOTER -->
 <footer class="container">
   <div class="row">
-    <div class="col-lg-12 text-center">
-      <h4>Connect with us</h4>
-        {% if settings.site_settings.SocialMediaSettings.facebook %}
+    © 2020 De Butterfly Charity
+    &NonBreakingSpace;
+    &NonBreakingSpace;
+    {% if settings.site_settings.SocialMediaSettings.facebook %}
             <a href="{{ settings.site_settings.SocialMediaSettings.facebook }}">
                 <i class="fab fa-facebook-f"></i>
             </a>
@@ -96,22 +89,19 @@
         &NonBreakingSpace;
         {% if settings.site_settings.SocialMediaSettings.twitter %}
             <a href="{{ settings.site_settings.SocialMediaSettings.twitter }}">
-                <i class="fab fa-twitter"></i>
+                <i class="fab fa-twitter" style=color:deepskyblue></i>
             </a>
         {% endif %}
         &NonBreakingSpace;
         {% if settings.site_settings.SocialMediaSettings.youtube %}
             <a href="{{ settings.site_settings.SocialMediaSettings.youtube }}">
-                <i class="fab fa-youtube"></i>
+                <i class="fab fa-youtube" style=color:blue></i>
             </a>
         {% endif %}
-    </div>
-</div>
-  <p class="float-right">
-    <a href="#">Back to top</a>
+  <!-- <p class="text-align:left>
+    <a href="#" style="color:black; text-align:right">Back to top</a> -->
   </p>
+  </div>
   <p>
-    © 2020 De Butterfly Charity.
-  </p>
 </footer>
 </html> 
