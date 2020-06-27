@@ -1,11 +1,10 @@
 {% load static wagtailuserbar %}
 {% load menu_tags %}
-{% main_menu max_levels=1 template="menus/main_menu.html" %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8"/>
         <title>
           {% block title %}
               {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
@@ -18,14 +17,17 @@
       </title>
       <meta name="description" content="" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
+   
 
         <!-- CSS Reset -->
         <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
         <!-- Tachyons CSS minified -->
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
-
+        
         {# Global stylesheets #}
+
+        <link href="/assets/css/material-kit.css?v=2.0.7" rel="stylesheet"/>
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -35,36 +37,15 @@
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
 
-<!-- 
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent justify-content-between">
-      <a class="navbar-brand" href="#">Debutterfly CIC</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="https://debutterfly.herokuapp.com">Home<span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-      </div>
+      </head>
 
-          {% for item in navigation.menu_items.all %}
-                  <a href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
-          {% endfor %}
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav> -->
 
-            {% block content %}{% endblock %}
-        </div>
+            
+       
     <body>
         {# Global javascript #}
-        
-
+        {% main_menu max_levels=1 template="menus/main_menu.html" %}
+        {% block content %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -74,34 +55,40 @@
             {# Override this in templates to add extra javascript #}
         {% endblock %}
     </body>
-    &NonBreakingSpace;
+
 <!-- FOOTER -->
-<footer class="container">
-  <div class="row">
-    © 2020 De Butterfly Charity
-    &NonBreakingSpace;
-    &NonBreakingSpace;
-    {% if settings.site_settings.SocialMediaSettings.facebook %}
+<footer class="navbar-light bg-faded">
+    <span>
+    <ul class="navbar-nav mx-auto text-center">
+        <li style="display:inline-block;">
+            <p><p style="font-family:Helvetica Neue; font-weight:300; font-size:medium" 
+                > © 2020 De Butterfly Charity
+            </p>
+        {% if settings.site_settings.SocialMediaSettings.facebook %}
             <a href="{{ settings.site_settings.SocialMediaSettings.facebook }}">
-                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-facebook-f" style=color:blue></i>
             </a>
+            &nbsp;
         {% endif %}
-        &NonBreakingSpace;
         {% if settings.site_settings.SocialMediaSettings.twitter %}
             <a href="{{ settings.site_settings.SocialMediaSettings.twitter }}">
-                <i class="fab fa-twitter" style=color:deepskyblue></i>
+                <i class="fab fa-twitter" style=color:dodgerblue></i>
             </a>
+            &nbsp;
         {% endif %}
-        &NonBreakingSpace;
         {% if settings.site_settings.SocialMediaSettings.youtube %}
             <a href="{{ settings.site_settings.SocialMediaSettings.youtube }}">
-                <i class="fab fa-youtube" style=color:blue></i>
+                <i class="fab fa-youtube" style=color:red></i>
             </a>
+            &nbsp;
         {% endif %}
-  <!-- <p class="text-align:left>
-    <a href="#" style="color:black; text-align:right">Back to top</a> -->
-  </p>
+        {% if settings.site_settings.SocialMediaSettings.instagram %}
+            <a href="{{ settings.site_settings.SocialMediaSettings.instagram }}">
+                <i class="fab fa-instagram" style=color:black></i>
+            </a>
+        </span>
+        {% endif %}
+    </ul>
   </div>
-  <p>
 </footer>
 </html> 
