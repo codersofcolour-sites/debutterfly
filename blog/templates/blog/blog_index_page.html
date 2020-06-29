@@ -9,27 +9,21 @@
     </div>
   </div>
 
-  <div class="container ph3 ph5-n">
+  <div class="container mb-sm-5 mt-sm-5">
+    <h1 class="text-center mb-sm-5">{{ self.title }}</h1>
     <div class="card-deck">
-     <div class="intro">{{ page.intro|richtext }}</div>
-    {% for post in page.get_children %}
-      <div class="row">
-       <div class="col-sm-6">
-        <div class="card" style="width: 18rem;">
-          <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top" />
-        </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ post.title }}</h5>
-              <p class="card-text">{{ post.date }}</p>
-                  <a href="{{ post.url }}" class="btn btn-info">
-                  </a>
+        {% for post in page.get_children %}
+            <div class="card">
+                <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.date }}</p>
+                        <a href="{{ post.url }}" class="btn btn-info">
+                        </a>
+                </div>
             </div>
-              {% endfor %}
-            </div>
-        </div>
-      </div>
+        {% endfor %}
     </div>
-  </div>
 </div>
 
     
