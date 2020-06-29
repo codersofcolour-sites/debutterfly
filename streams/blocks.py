@@ -47,7 +47,7 @@ class CardBlock(blocks.StructBlock):
     cards = blocks.ListBlock(
         blocks.StructBlock(
             [
-                ("image", ImageChooserBlock(required=True)),
+                ("image", ImageChooserBlock(required=False)),
                 ("title", blocks.CharBlock(required=True, max_length=100)),
                 ("text", blocks.TextBlock(required=True, max_length=200)),
                 ("button_page", blocks.PageChooserBlock(required=False)),
