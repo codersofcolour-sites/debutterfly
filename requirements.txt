@@ -85,7 +85,6 @@ Unidecode==1.1.1
 urllib3==1.25.8
 virtualenv==20.0.3
 wagtail==2.8
-wagtailcolumnblocks==2.0.0
 wagtailmenus==3.0.2
 wagtailstreamforms==3.10
 watchdog==0.10.2
