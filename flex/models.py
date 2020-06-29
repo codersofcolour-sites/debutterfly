@@ -9,6 +9,9 @@ from wagtail.core.blocks import RawHTMLBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core import blocks
 
+from wagtailcolumnblocks.blocks import ColumnsBlock
+
+
 
 from streams import blocks
 
@@ -23,10 +26,13 @@ class FlexPage(Page):
             ("title_and_text", blocks.TitleAndTextBlock()),
             ("full_richtext", blocks.RichTextBlock()),
             ("simple_richtext", blocks.SimpleRichTextBlock()),
+            ("two_columns", blocks.MyColumnBlocks()),
             ("embed_block", EmbedBlock()),
             ("html_block", blocks.RawHTMLBlock()),
             ("image_chooser_block", ImageChooserBlock()),
             ("cards", blocks.CardBlock()),
+            
+           
         ],
         null=True,
         blank=True

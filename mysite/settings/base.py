@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'flex',
     'streams',
     'site_settings',
+    'wagtailcolumnblocks',
     'wagtail.contrib.modeladmin',
     'wagtailmenus',
     'wagtail.contrib.forms',

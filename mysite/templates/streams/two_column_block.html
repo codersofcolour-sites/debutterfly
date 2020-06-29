@@ -1,0 +1,12 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %} 
+{% image page.photo height-480 %}
+
+<div class="row">
+    {% for column, width in columns %}
+        <div class="col-xs-12 col-md-6">
+            {% include_block column %}
+        </div>
+    {% endfor %}
+</div>
+

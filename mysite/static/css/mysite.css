@@ -5,3 +5,8 @@
 .navbar-inner {
     background:transparent;
 } */
+
+.container.ph3.ph5 img {
+    max-width: 100%;
+    height: 400px;
+}
