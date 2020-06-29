@@ -7,8 +7,6 @@ from wagtail.core.fields import StreamField, RichTextField
 from wagtail.admin.edit_handlers import (FieldPanel, FieldRowPanel,InlinePanel, MultiFieldPanel, PageChooserPanel, StreamFieldPanel)
 from modelcluster.fields import ParentalKey
 from wagtailcolumnblocks.blocks import ColumnsBlock
-from django.templatetags.static import static
-
 
 class MyContentBlocks(blocks.StreamBlock):
     """
