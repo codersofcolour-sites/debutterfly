@@ -1,7 +1,10 @@
 from django.db import models
 
+
+from modelcluster.fields import ParentalKey
+
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, FieldRowPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
-from wagtail.core.models import Page
+from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import StreamField
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.embeds.finders.base import EmbedFinder
@@ -10,8 +13,8 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core import blocks
 
 
-
 from streams import blocks
+
 
 class FlexPage(Page):
     """Flexible page class."""

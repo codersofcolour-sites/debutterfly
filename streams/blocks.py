@@ -4,8 +4,9 @@ from django.db import models
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core.fields import StreamField, RichTextField
-from wagtail.admin.edit_handlers import (FieldPanel, FieldRowPanel,InlinePanel, MultiFieldPanel, PageChooserPanel, StreamFieldPanel)
+from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, PageChooserPanel, StreamFieldPanel
 from modelcluster.fields import ParentalKey
+
 
 class CTABlock(blocks.StructBlock):
     """A simple call to action section."""
@@ -48,8 +49,8 @@ class CardBlock(blocks.StructBlock):
         blocks.StructBlock(
             [
                 ("image", ImageChooserBlock(required=False)),
-                ("title", blocks.CharBlock(required=True, max_length=100)),
-                ("text", blocks.TextBlock(required=True, max_length=1000)),
+                ("title", blocks.CharBlock(required=False, max_length=100)),
+                ("text", blocks.TextBlock(required=False, max_length=1000)),
                 ("button_page", blocks.PageChooserBlock(required=False)),
                 ("button_url", blocks.URLBlock(required=False, help_text="If button page above is selected, that will be used first")),
             ]
