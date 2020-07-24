@@ -3,9 +3,27 @@ from django.db import models
 
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.core.models import Page, Orderable
+from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import StreamField, RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, PageChooserPanel, StreamFieldPanel
 from modelcluster.fields import ParentalKey
+
+class CarouselImages(blocks.StructBlock):
+    """Between 1 and 5 images for the home page carousel."""
+
+    carousel = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("image", ImageChooserBlock(required=False, max_num=5, min_num=1,label="Image",related_name="carousel_images")),
+            ]
+        )
+    )
+
+    class Meta: #noqa
+        template = "streams/carousel_images.html"
+        icon = "placeholder"
+        label = "Carousel"
 
 
 class CTABlock(blocks.StructBlock):

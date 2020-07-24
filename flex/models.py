@@ -31,7 +31,7 @@ class FlexPage(Page):
             ("html_block", blocks.RawHTMLBlock()),
             ("image_chooser_block", ImageChooserBlock()),
             ("cards", blocks.CardBlock()),
-            
+            ("carousel_images", blocks.CarouselImages()),
            
         ],
         null=True,
